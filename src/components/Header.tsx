@@ -1,5 +1,5 @@
 
-import { Plate, DollarSign } from "lucide-react";
+import { Utensils, DollarSign } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 
 const navItems = [
@@ -17,7 +17,7 @@ export default function Header() {
         <Link to="/" className="flex items-center gap-2">
           <span className="relative w-10 h-10 flex items-center justify-center">
             <span className="absolute z-10 left-5 top-2.5 text-primary"><DollarSign size={18} strokeWidth={2.4} /></span>
-            <Plate size={36} className="text-accent" strokeWidth={2.3} />
+            <Utensils size={36} className="text-accent" strokeWidth={2.3} />
           </span>
           <span className="text-2xl font-playfair font-bold text-chocolate">
             Bites&nbsp;<span className="text-primary">On A Budget</span>
