@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vegetarian Recipes | Busy Budget Bites</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fffaf5;
+      color: #333;
+      padding: 1rem;
+    }
+
+    header {
+      text-align: center;
+      background-color: #ffb347;
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .description {
+      max-width: 800px;
+      margin: 2rem auto;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .tile {
+      background-color: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .tile:hover {
+      transform: translateY(-5px);
+    }
+
+    .tile img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .tile h3 {
+      padding: 1rem;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .back-link {
+      display: block;
+      margin: 2rem auto;
+      text-align: center;
+      text-decoration: none;
+      color: #ff7f50;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Vegetarian Recipes</h1>
+    <p>Delicious, meat-free meals that are easy on your wallet!</p>
+  </header>
+
+  <div class="description">
+    Whether you're a lifelong vegetarian or just looking to eat more plant-based meals, these budget-friendly vegetarian recipes are full of flavor and nourishment.
+  </div>
+
+  <section class="tile-grid">
+    <a class="tile" href="https://www.budgetbytes.com/vegetarian-chili/" target="_blank">
+      <img src="images/vegeterian chilli.jpg" alt="Vegetarian Chili" />
+      <h3>Hearty Vegetarian Chili</h3>
+    </a>
+
+    <a class="tile" href="https://www.budgetbytes.com/spinach-and-egg-breakfast-quesadillas/" target="_blank">
+      <img src="images/omelette.jpg" alt="Spinach Quesadillas" />
+      <h3>Spinach Breakfast Quesadillas</h3>
+    </a>
+
+    <a class="tile" href="https://www.loveandlemons.com/vegetable-fried-rice/" target="_blank">
+      <img src="images/veg-fried-rice.jpg" alt="Veggie Fried Rice" />
+      <h3>Vegetable Fried Rice</h3>
+    </a>
+  </section>
+
+  <a href="index.html" class="back-link">&larr; Back to Home</a>
+
+  <footer>
+    &copy; 2025 Busy Budget Bites | Powered by plants & love 🥦
+  </footer>
+</body>
+
+</html>

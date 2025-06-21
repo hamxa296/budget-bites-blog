@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lunch Recipes | Busy Budget Bites</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fffaf5;
+      color: #333;
+      padding: 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      background-color: #ffb347;
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    p.intro {
+      max-width: 700px;
+      margin: 1rem auto 2rem;
+      font-size: 1.1rem;
+    }
+
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .tile {
+      background-color: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .tile:hover {
+      transform: translateY(-5px);
+    }
+
+    .tile img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .tile h3 {
+      padding: 1rem;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 2rem;
+      text-align: center;
+      text-decoration: none;
+      color: #ff7f50;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Lunch Recipes</h1>
+    <p class="intro">Refuel your day with these delicious and budget-conscious lunch ideas — perfect for home, school, or work!</p>
+  </header>
+
+  <section class="tile-grid">
+    <a class="tile" href="chicken-wrap.html">
+      <img src="images/chicken-wrap.jpg" alt="Chicken Wrap">
+      <h3>Grilled Chicken Wrap</h3>
+    </a>
+
+    <a class="tile" href="veggie-pita.html">
+      <img src="images/veggie-pita.jpg" alt="Veggie Pita Pocket">
+      <h3>Veggie Pita Pocket</h3>
+    </a>
+
+    <a class="tile" href="mac-n-cheese.html">
+      <img src="images/mac-n-cheese.jpg" alt="Mac n Cheese">
+      <h3>Classic Mac n Cheese</h3>
+    </a>
+  </section>
+
+  <a href="index.html" class="back-link">&larr; Back to Home</a>
+
+  <footer>
+    &copy; 2025 Busy Budget Bites | Fuel your lunch hour with flavor and value! 🍴
+  </footer>
+</body>
+
+</html>
