@@ -116,6 +116,10 @@
     .back-link:hover {
       text-decoration: underline;
     }
+
+    .tile[data-tags] {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -130,31 +134,30 @@
   </section>
 
   <section class="filter-section">
-    <button class="filter-btn">🥚 High-Protein</button>
-    <button class="filter-btn">🌱 Vegan</button>
-    <button class="filter-btn">⏱️ Under 10 Min</button>
-    <button class="filter-btn">💰 Under $2</button>
+    <button class="filter-btn" onclick="filterTiles('protein')">🥚 High-Protein</button>
+    <button class="filter-btn" onclick="filterTiles('vegan')">🌱 Vegan</button>
+    <button class="filter-btn" onclick="filterTiles('quick')">⏱️ Under 10 Min</button>
+    <button class="filter-btn" onclick="filterTiles('budget')">💰 Under $2</button>
+    <button class="filter-btn" onclick="filterTiles('all')">🔄 Show All</button>
   </section>
 
   <div class="trending-heading">🔥 Trending These Days</div>
 
   <section class="tile-grid">
-
-    <a class="tile" href="omelette-wrap.html" target="_blank">
+    <a class="tile" href="omelette-wrap.html" target="_blank" data-tags="protein quick budget">
       <img src="images/omelette.jpg" alt="Protein Omelette Wrap" />
       <h3>Protein Omelette Wrap</h3>
     </a>
 
-    <a class="tile" href="pb-toast.html" target="_blank">
+    <a class="tile" href="pb-toast.html" target="_blank" data-tags="vegan quick budget">
       <img src="images/pb-toast.jpg" alt="Peanut Butter Banana Toast" />
       <h3>PB Banana Toast</h3>
     </a>
 
-    <a class="tile" href="smoothie-bowl.html" target="_blank">
+    <a class="tile" href="smoothie-bowl.html" target="_blank" data-tags="vegan protein quick">
       <img src="images/smoothie.jpg" alt="Berry Smoothie Bowl" />
       <h3>Berry Smoothie Bowl</h3>
     </a>
-
   </section>
 
   <a href="index.html" class="back-link">&larr; Back to Home</a>
@@ -162,6 +165,20 @@
   <footer>
     &copy; 2025 Busy Budget Bites | Healthy mornings for every wallet 🌞
   </footer>
+
+  <script>
+    function filterTiles(tag) {
+      const tiles = document.querySelectorAll(".tile");
+      tiles.forEach(tile => {
+        const tags = tile.getAttribute("data-tags");
+        if (tag === "all" || tags.includes(tag)) {
+          tile.style.display = "block";
+        } else {
+          tile.style.display = "none";
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
