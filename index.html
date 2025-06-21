@@ -1,24 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>budget-bites-blog</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Busy Budget Bites</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+    }
 
-    <meta property="og:title" content="budget-bites-blog" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    header {
+      background-color: #ffb347;
+      padding: 1.5rem;
+      text-align: center;
+      color: white;
+    }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    .main-container {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #ffe0b2;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .sidebar h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 0.8rem 0;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .sidebar li:hover {
+      background-color: #ffd699;
+    }
+
+    .content {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tile {
+      background-color: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .tile:hover {
+      transform: translateY(-5px);
+    }
+
+    .tile img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .tile h3 {
+      padding: 1rem;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #ffb347;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Busy Budget Bites</h1>
+    <p>Quick, tasty & budget-friendly recipes for everyday cooking!</p>
+  </header>
+
+  <div class="main-container">
+    <aside class="sidebar">
+      <h2>Categories</h2>
+      <ul>
+        <li>🍳 Breakfast</li>
+        <li>🥪 Lunch</li>
+        <li>🍝 Dinner</li>
+        <li>💸 Under $5</li>
+        <li>💵 Under $10</li>
+        <li>🛒 Pantry Staples</li>
+        <li>🥗 Vegetarian</li>
+        <li>🔥 One-Pot Recipes</li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <section class="tile-grid">
+        <div class="tile">
+          <img src="images/pasta.jpg" alt="Creamy Budget Pasta" />
+          <h3>Creamy 15-Minute Pasta</h3>
+        </div>
+
+        <div class="tile">
+          <img src="images/omelette.jpg" alt="Omelette Wrap" />
+          <h3>Protein Omelette Wrap</h3>
+        </div>
+
+        <div class="tile">
+          <img src="images/noodles.jpg" alt="Street-Style Noodles" />
+          <h3>Quick Street-Style Noodles</h3>
+        </div>
+
+        <div class="tile">
+          <img src="images/beans-toast.jpg" alt="Beans on Toast" />
+          <h3>Cheesy Beans on Toast</h3>
+        </div>
+
+        <div class="tile">
+          <img src="images/chicken-rice.jpg" alt="Spiced Chicken & Rice" />
+          <h3>Spiced Chicken & Rice Bowl</h3>
+        </div>
+
+        <!-- External Linked Tile 1 -->
+        <a class="tile" href="https://www.budgetbytes.com/vegetarian-chili/" target="_blank" rel="noopener noreferrer">
+          <img src="https://www.budgetbytes.com/wp-content/uploads/2021/09/Vegetarian-Chili-V1.jpg" alt="Vegetarian Chili">
+          <h3>Hearty Vegetarian Chili</h3>
+        </a>
+
+        <!-- External Linked Tile 2 -->
+        <a class="tile" href="easy-chicken-fried-rice.html">" target="_blank" rel="noopener noreferrer">
+          <img src="https://hips.hearstapps.com/hmg-prod/images/chicken-fried-rice-1585237280.jpg" alt="Chicken Fried Rice">
+          <h3>Easy Chicken Fried Rice</h3>
+        </a>
+
+        <!-- External Linked Tile 3 -->
+        <a class="tile" href="https://www.allrecipes.com/recipe/24074/alysias-basic-meat-lasagna/" target="_blank" rel="noopener noreferrer">
+          <img src="https://www.allrecipes.com/thmb/x28ZqSl-l7wYQq_J0EXWE1OHQjM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/24074-alysias-basic-meat-lasagna-DDMFS-4x3-c8fa22e47cd144ef8dc961f57e4645f3.jpg" alt="Lasagna">
+          <h3>Basic Meat Lasagna</h3>
+        </a>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2025 Busy Budget Bites | Made with ❤️ for food lovers on a budget
+  </footer>
+
+</body>
 </html>
