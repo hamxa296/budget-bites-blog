@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipe Recommender AI</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #fffaf5;
+      color: #333;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      padding: 1rem;
+    }
+
+    button {
+      padding: 0.8rem 1.5rem;
+      background: #ffb347;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 0.4rem;
+    }
+
+    .reply {
+      margin-top: 2rem;
+      background: #f3f3f3;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍳 AI Recipe Recommender</h1>
+  <p>Tell us your <strong>mood</strong>, <strong>budget</strong>, or <strong>ingredients</strong>, and we’ll recommend a dish!</p>
+
+  <textarea id="prompt" placeholder="e.g., I'm feeling lazy and want something spicy under $5"></textarea>
+  <br />
+  <button onclick="getRecipe()">Get Recommendation</button>
+
+  <div class="reply" id="replyBox"></div>
+
+  <script>
+    async function getRecipe() {
+      const prompt = document.getElementById("prompt").value;
+      const replyBox = document.getElementById("replyBox");
+      replyBox.textContent = "Thinking...";
+
+      const res = await fetch("/api/recipe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt })
+      });
+
+      const data = await res.json();
+      replyBox.textContent = data.reply;
+    }
+  </script>
+
+</body>
+</html>
