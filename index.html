@@ -40,13 +40,28 @@
     .sidebar {
       width: 240px;
       background-color: #ffe0b2;
-      padding: 2rem 1rem;
+      padding: 5rem 1rem 2rem;
       min-height: 100vh;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+      background-color: #ffe0b2;
+    }
+
+    .sidebar:not(.open) {
+      background-color: transparent;
     }
 
     .sidebar h2 {
       font-size: 1.3rem;
-      margin-bottom: 1rem;
+      margin: 1rem 0 1rem 0;
     }
 
     .sidebar ul {
@@ -66,9 +81,39 @@
       background-color: #ffd699;
     }
 
+    .sidebar a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
+    .toggle-btn {
+      background-color: #ffb347;
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1100;
+      border-radius: 8px;
+    }
+
+    .toggle-btn.open {
+      background-color: transparent;
+    }
+
     .content {
       flex: 1;
       padding: 2rem;
+      margin-left: 0;
+      transition: margin-left 0.3s ease-in-out;
+    }
+
+    .sidebar.open ~ .content {
+      margin-left: 240px;
     }
 
     .tile-grid {
@@ -111,13 +156,12 @@
     }
 
     @media (max-width: 768px) {
-      .main-container {
-        flex-direction: column;
+      .sidebar {
+        height: 100%;
       }
 
-      .sidebar {
-        width: 100%;
-        min-height: auto;
+      .sidebar.open ~ .content {
+        margin-left: 0;
       }
     }
   </style>
@@ -125,55 +169,51 @@
 
 <body>
 
+  <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">☰</button>
+
   <header>
     <h1>Busy Budget Bites</h1>
     <p>Quick, tasty & budget-friendly recipes for everyday cooking!</p>
   </header>
 
   <div class="main-container">
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <h2>Categories</h2>
       <ul>
-        <li>🍳 Breakfast</li>
-        <li>🥪 Lunch</li>
-        <li>🍝 Dinner</li>
-        <li>💸 Under $5</li>
-        <li>💵 Under $10</li>
-        <li>🛒 Pantry Staples</li>
-        <li>🥗 Vegetarian</li>
-        <li>🔥 One-Pot Recipes</li>
+        <li><a href="breakfast.html">🍳 Breakfast</a></li>
+        <li><a href="lunch.html">🥪 Lunch</a></li>
+        <li><a href="dinner.html">🍝 Dinner</a></li>
+        <li><a href="#">💸 Under $5</a></li>
+        <li><a href="#">💵 Under $10</a></li>
+        <li><a href="#">🛒 Pantry Staples</a></li>
+        <li><a href="vegetarian.html">🥗 Vegetarian</a></li>
+        <li><a href="#">🔥 One-Pot Recipes</a></li>
       </ul>
     </aside>
 
     <main class="content">
       <section class="tile-grid">
-
-        <a class="tile" href="https://www.budgetbytes.com/creamy-tomato-pasta/" target="_blank"
-          rel="noopener noreferrer">
+        <a class="tile" href="https://www.budgetbytes.com/creamy-tomato-pasta/" target="_blank" rel="noopener noreferrer">
           <img src="images/pasta.jpg" alt="Creamy Budget Pasta" />
           <h3>Creamy 15-Minute Pasta</h3>
         </a>
 
-        <a class="tile" href="https://www.budgetbytes.com/spinach-and-egg-breakfast-quesadillas/" target="_blank"
-          rel="noopener noreferrer">
+        <a class="tile" href="https://www.budgetbytes.com/spinach-and-egg-breakfast-quesadillas/" target="_blank" rel="noopener noreferrer">
           <img src="images/omelette.jpg" alt="Omelette Wrap" />
           <h3>Protein Omelette Wrap</h3>
         </a>
 
-        <a class="tile" href="https://www.indianhealthyrecipes.com/hakka-noodles-recipe/" target="_blank"
-          rel="noopener noreferrer">
+        <a class="tile" href="https://www.indianhealthyrecipes.com/hakka-noodles-recipe/" target="_blank" rel="noopener noreferrer">
           <img src="images/noodles.jpg" alt="Street-Style Noodles" />
           <h3>Quick Street-Style Noodles</h3>
         </a>
 
-        <a class="tile" href="https://www.bbcgoodfood.com/recipes/cheesy-beans-toast" target="_blank"
-          rel="noopener noreferrer">
+        <a class="tile" href="https://www.bbcgoodfood.com/recipes/cheesy-beans-toast" target="_blank" rel="noopener noreferrer">
           <img src="images/beans-toast.jpg" alt="Beans on Toast" />
           <h3>Cheesy Beans on Toast</h3>
         </a>
 
-        <a class="tile" href="https://www.eatingwell.com/recipe/7880462/spicy-chicken-rice-bowl/" target="_blank"
-          rel="noopener noreferrer">
+        <a class="tile" href="https://www.eatingwell.com/recipe/7880462/spicy-chicken-rice-bowl/" target="_blank" rel="noopener noreferrer">
           <img src="images/chicken-rice.jpg" alt="Spiced Chicken & Rice" />
           <h3>Spiced Chicken & Rice Bowl</h3>
         </a>
@@ -183,18 +223,15 @@
           <h3>Hearty Vegetarian Chili</h3>
         </a>
 
-
-        <a class="tile" href="easy-chicken-fried-rice.html" target="_blank"> <img src="images/chicken fried rice.jpg"
-            alt="Chicken Fried Rice">
+        <a class="tile" href="easy-chicken-fried-rice.html" target="_blank">
+          <img src="images/chicken fried rice.jpg" alt="Chicken Fried Rice">
           <h3>Easy Chicken Fried Rice</h3>
         </a>
 
-        <a class="tile" href="https://www.allrecipes.com/recipe/24074/alysias-basic-meat-lasagna/" target="_blank"
-          rel="noopener noreferrer">
+        <a class="tile" href="https://www.allrecipes.com/recipe/24074/alysias-basic-meat-lasagna/" target="_blank" rel="noopener noreferrer">
           <img src="images/lasagna.jpg" alt="Lasagna">
           <h3>Basic Meat Lasagna</h3>
         </a>
-
       </section>
     </main>
   </div>
@@ -202,6 +239,17 @@
   <footer>
     &copy; 2025 Busy Budget Bites | Made with ❤️ for food lovers on a budget
   </footer>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      const toggleBtn = document.getElementById("toggleBtn");
+      const isOpen = sidebar.classList.toggle("open");
+
+      toggleBtn.classList.toggle("open", !isOpen);
+      toggleBtn.textContent = isOpen ? "☰" : "☰";
+    }
+  </script>
 
 </body>
 
