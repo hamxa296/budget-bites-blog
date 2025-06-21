@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Recipe Recommender</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fffaf5;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #ff7f50;
+    }
+    button {
+      padding: 1rem 2rem;
+      margin: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 999px;
+      background-color: #ffb347;
+      color: white;
+      cursor: pointer;
+    }
+    #response {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #ffe;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      white-space: pre-wrap;
+    }
+    input, textarea {
+      width: 80%;
+      padding: 1rem;
+      margin: 1rem auto;
+      display: block;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍳 AI Recipe Recommender</h1>
+
+  <button onclick="setMode('mood')">Suggest by Mood</button>
+  <button onclick="setMode('budget')">Suggest by Budget</button>
+  <button onclick="setMode('ingredients')">Suggest by Ingredients</button>
+
+  <textarea id="userInput" placeholder="Enter your mood, budget, or ingredients..."></textarea>
+  <button onclick="getRecipe()">Get Recipe</button>
+
+  <div id="response">🤖 Your recipe will appear here.</div>
+
+  <script>
+    let mode = "mood"; // default
+
+    function setMode(newMode) {
+      mode = newMode;
+      document.getElementById('userInput').placeholder = 
+        mode === "mood" ? "Feeling lazy? Energetic? Craving comfort food?" :
+        mode === "budget" ? "e.g. Under $5, under $10, etc." :
+        "e.g. rice, chicken, eggs...";
+    }
+
+    async function getRecipe() {
+      const input = document.getElementById('userInput').value;
+      const prompt = 
+        mode === "mood" ? `I'm in this mood: ${input}. Suggest one recipe, a short description, and a YouTube link. Link it to a relevant page on busy budget bites.` :
+        mode === "budget" ? `Give me a budget-friendly recipe under this amount: ${input}. Add YouTube and site links.` :
+        `I have these ingredients: ${input}. Suggest a recipe, link to a YouTube tutorial and my site.`
+
+      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer YOUR_API_KEY_HERE",  // Replace this!
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "openai/gpt-3.5-turbo", // Or use mistral/mixtral if you prefer
+          messages: [
+            {
+              role: "system",
+              content: "You're a smart recipe assistant for Busy Budget Bites. You suggest affordable meals with links."
+            },
+            {
+              role: "user",
+              content: prompt
+            }
+          ]
+        })
+      });
+
+      const data = await response.json();
+      document.getElementById("response").innerText =
+        data?.choices?.[0]?.message?.content || "Something went wrong!";
+    }
+  </script>
+
+</body>
+</html>
