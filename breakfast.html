@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Breakfast Recipes | Busy Budget Bites</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fffaf5;
+      color: #333;
+      padding: 1rem;
+    }
+
+    header {
+      text-align: center;
+      background-color: #ffb347;
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .intro-text {
+      max-width: 800px;
+      margin: 1rem auto 2rem;
+      font-size: 1.1rem;
+      text-align: center;
+      color: #444;
+    }
+
+    .filter-section {
+      text-align: center;
+      margin: 2rem 0 1rem;
+    }
+
+    .filter-btn {
+      margin: 0.7rem;
+      padding: 1rem 1.8rem;
+      background-color: #ffe0b2;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .filter-btn:hover {
+      background-color: #ffd699;
+    }
+
+    .trending-heading {
+      text-align: center;
+      font-size: 2rem;
+      margin: 3rem 0 1.5rem;
+      font-weight: 600;
+      color: #ff7f50;
+    }
+
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .tile {
+      background-color: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .tile:hover {
+      transform: translateY(-5px);
+    }
+
+    .tile img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .tile h3 {
+      padding: 1rem;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 2rem;
+      text-align: center;
+      text-decoration: none;
+      color: #ff7f50;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Breakfast Recipes</h1>
+    <p>Start your day with energy — quick, tasty, and budget-friendly!</p>
+  </header>
+
+  <section class="intro-text">
+    Whether you're in a rush or taking it slow, our breakfast ideas are perfect for starting your day deliciously without breaking the bank.
+  </section>
+
+  <section class="filter-section">
+    <button class="filter-btn">🥚 High-Protein</button>
+    <button class="filter-btn">🌱 Vegan</button>
+    <button class="filter-btn">⏱️ Under 10 Min</button>
+    <button class="filter-btn">💰 Under $2</button>
+  </section>
+
+  <div class="trending-heading">🔥 Trending These Days</div>
+
+  <section class="tile-grid">
+
+    <a class="tile" href="omelette-wrap.html" target="_blank">
+      <img src="images/omelette.jpg" alt="Protein Omelette Wrap" />
+      <h3>Protein Omelette Wrap</h3>
+    </a>
+
+    <a class="tile" href="pb-toast.html" target="_blank">
+      <img src="images/pb-toast.jpg" alt="Peanut Butter Banana Toast" />
+      <h3>PB Banana Toast</h3>
+    </a>
+
+    <a class="tile" href="smoothie-bowl.html" target="_blank">
+      <img src="images/smoothie.jpg" alt="Berry Smoothie Bowl" />
+      <h3>Berry Smoothie Bowl</h3>
+    </a>
+
+  </section>
+
+  <a href="index.html" class="back-link">&larr; Back to Home</a>
+
+  <footer>
+    &copy; 2025 Busy Budget Bites | Healthy mornings for every wallet 🌞
+  </footer>
+
+</body>
+</html>
