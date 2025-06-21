@@ -1,7 +1,14 @@
 {
+  "version": 2,
   "functions": {
     "api/recipe.js": {
       "runtime": "nodejs18.x"
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/api/recipe",
+      "dest": "api/recipe.js"
+    }
+  ]
 }
