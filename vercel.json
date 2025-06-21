@@ -1,14 +1,23 @@
 {
   "version": 2,
-  "functions": {
-    "api/recipe.js": {
-      "runtime": "nodejs18.x"
+  "builds": [
+    {
+      "src": "api/recipe.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
     }
-  },
+  ],
   "routes": [
     {
-      "src": "/api/recipe",
-      "dest": "api/recipe.js"
+      "src": "/api/(.*)",
+      "dest": "/api/$1.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
     }
   ]
 }
